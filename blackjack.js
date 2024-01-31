@@ -11,7 +11,7 @@ let sum = firstCard + secondCard
 //console.log(sum)
 let hasBlackjack = false
 //console.log(hasBlackjack)
-let isAlive = true
+let isAlive = false
 //console.log(isAlive)
 let message = ""
 let cards = []
@@ -38,25 +38,34 @@ function getRandom(min,max){
 }
 
 function startGame(){
-    firstCard = getRandom(2,11)
+    if(isAlive == false )
+    {
+    isAlive = true
+    hasBlackjack = false;
+    firstCard = getRandom(1,13)
     cards.push(firstCard);
-    secondCard = getRandom(2,11)
+    secondCard = getRandom(1,13)
     cards.push(secondCard);
     playBlackjack();
+    btn.textContent = "Game In Progress"
     //console.log(cards)
-    
-    btn.textContent = "mujhe mat dabao"
+    }
+    //btn.textContent = "mujhe mat dabao"
 }
 
 function newCard()
 {
-    let nextCard = getRandom(2,11)
+    if(isAlive && hasBlackjack == false)
+    {
+    let nextCard = getRandom(1,13)
     cards.push(nextCard)
     playBlackjack()
+    }
 }
 
 function gameOver()
 {
+    isAlive = false
     btn.textContent = "Restart"
     cards = []
     sum = 0
@@ -65,6 +74,10 @@ function gameOver()
     
 }
 
+function gameWinner(){
+    hasBlackjack = true
+    gameOver();
+}
 
 function playBlackjack(){
     //firstCard = getRandom(2,11)
@@ -87,12 +100,11 @@ function playBlackjack(){
     else if(sum === 21)
     {
         message = "Congratulations You have a Black Jack"
-        hasBlackjack = true
+        gameWinner();
     }
     else if(sum > 21)
     {
         message = "Unfortunately you have lost, i feel very sad for you"
-        isAlive = false
         gameOver();
     }
     sum = 0;
