@@ -1,3 +1,24 @@
 h1 {
     color: goldenrod 
+
+}
+body{
+
+    text-align: center;
+    background-image: url(images/table.webp);
+    background-color: aquamarine;
+    background-size: cover;
+    color: antiquewhite;
+    font-weight: bold;
+}
+#message-el {
+font-style: italic;
+
+}
+#button-el{
+    text-align: center;
+    background-color: blueviolet;
+    font-weight: bolder;
+    border-color: rgb(172, 5, 5);
+    border-width: 2pt;
 }

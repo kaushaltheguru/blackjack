@@ -1,11 +1,11 @@
 //console.log("hi this is m log")
 //console.log("firse comment kkar diya")
 //let firstCard = Math.floor(Math.random()*(11-2+1)+2)
-let firstCard = getRandom(2,11)
-console.log(firstCard)
+let firstCard = 0
+
 //let secondCard = Math.floor(Math.random()*(11-2+1)+2)
-let secondCard = getRandom(2,11)
-console.log(secondCard)
+let secondCard = 0
+
 let sum = firstCard + secondCard
 console.log(sum)
 let hasBlackjack = false
@@ -24,6 +24,18 @@ function getRandom(min,max){
 
 
 function playBlackjack(){
+    firstCard = getRandom(2,11)
+    secondCard = getRandom(2,11)
+    sum = firstCard + secondCard
+    console.log(firstCard)
+    console.log(secondCard)
+    console.log(sum)
+    let pCards = document.getElementById("cards-el")
+    pCards.textContent = "Cards: " +firstCard + " & " + secondCard
+    let pSum = document.getElementById("sum-el")
+    pSum.textContent = "Sum: " + sum
+    let pMessage = document.getElementById("message-el")
+    
     if (sum < 21)
     {
         message = "do you want to pick another card"
@@ -41,4 +53,5 @@ function playBlackjack(){
     console.log(message)
     console.log("Jeet Gaya : " + hasBlackjack)
     console.log("Zinda hai ?? : "+ isAlive)
+    pMessage.textContent = message;
 }
