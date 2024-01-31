@@ -19,8 +19,22 @@ let cards = []
 
 function getRandom(min,max){
     //console.log("function me hu ")
-    return Math.floor(Math.random()*(max-min+1)+min)
+    //return Math.floor(Math.random()*(max-min+1)+min)
     //this functions returns a random integer between min and max 
+    let num = Math.floor(Math.random()*13)+1
+    console.log(num)
+    if(num === 1)
+    {
+        return 11
+    }
+    else if(num>=11 && num <=13)
+    {
+        return 10
+    }
+    else
+    {
+        return num
+    }
 }
 
 function startGame(){
@@ -29,7 +43,7 @@ function startGame(){
     secondCard = getRandom(2,11)
     cards.push(secondCard);
     playBlackjack();
-    console.log(cards)
+    //console.log(cards)
     
     btn.textContent = "mujhe mat dabao"
 }
@@ -59,7 +73,7 @@ function playBlackjack(){
     {
         sum += cards[i];
     }
-    console.log(sum)
+    //console.log(sum)
     let pCards = document.getElementById("cards-el")
     pCards.textContent = "Cards: " + cards;
     let pSum = document.getElementById("sum-el")
