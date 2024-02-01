@@ -40,6 +40,7 @@ function getRandom(min,max){
 function startGame(){
     if(isAlive == false )
     {
+    btn.textContent = "Game In Progress"
     isAlive = true
     hasBlackjack = false;
     firstCard = getRandom(1,13)
@@ -47,10 +48,7 @@ function startGame(){
     secondCard = getRandom(1,13)
     cards.push(secondCard);
     playBlackjack();
-    btn.textContent = "Game In Progress"
-    //console.log(cards)
-    }
-    //btn.textContent = "mujhe mat dabao"
+}
 }
 
 function newCard()
@@ -71,6 +69,7 @@ function gameOver()
     sum = 0
     firstCard = 0
     secondCard = 0
+    hasBlackjack = false
     
 }
 
